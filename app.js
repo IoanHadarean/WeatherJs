@@ -1,15 +1,24 @@
 /* global Weather */
 /* global UI */
+/* global Storage */
 
-// Init Weather object
 
+// Get stored location data
+const weatherLocation = storage.getLocationdata();
+console.log(weatherLocation);
+// Init weather object
 const weather = new Weather('Sibiu', 'ro');
+// Init ui
 const ui = new UI();
+// Init storage
+const storage = new Storage();
+
 
 // Get weather on DOM load
 document.addEventListener('DOMContentLoaded', fetchWeather);
 
 function fetchWeather() {
+    storage.getLocationdata();
     weather.getWeather()
         .then(data => {
             ui.inject(data);
@@ -30,6 +39,8 @@ weatherChangeBtn.addEventListener('click', () => {
     // Get and display location weather
     fetchWeather();
     
+    storage.setLocationData(city, countryCode);
+    
     
     // Close Modal
     closeModal('locModal');
@@ -48,5 +59,5 @@ function closeModal(modalId) {
      const modalBackdrops = document.getElementsByClassName('modal-backdrop');
 
      // remove opened modal backdrop
-      document.body.removeChild(modalBackdrops[0]);
+     document.body.removeChild(modalBackdrops[0]);
 }
