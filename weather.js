@@ -14,7 +14,6 @@ class Weather {
         const resData = await response.json();
 
         return resData;
-
     }
 
     // Change weather location

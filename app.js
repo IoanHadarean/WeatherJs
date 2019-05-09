@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', fetchWeather);
 function fetchWeather() {
     weather.getWeather()
         .then(data => {
-            console.log(data);
+            ui.inject(results);
         })
         .catch(err => console.log(err));
 }
