@@ -12,7 +12,7 @@ class UI {
     }
     
     inject(results) {
-        this.location.textContent =  results.name + " " + results.sys.country;
+        this.location.textContent =  results.name + ", " + results.sys.country;
         this.desc.textContent = results.weather[0].description;
         this.string.textContent = (results.main.temp - 273.25).toFixed(2) + "°C";
         this.icon.setAttribute('src', `https://openweathermap.org/img/w/${results.weather[0].icon}.png`);
@@ -20,6 +20,5 @@ class UI {
         this.pressure.textContent = `Pressure: ${results.main.pressure}`;
         this.visibility.textContent = `Visibility: ${results.visibility}`;
         this.wind.textContent = `Wind speed: ${results.wind.speed}`;
-
     }
 }
