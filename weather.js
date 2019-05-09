@@ -6,14 +6,20 @@ class Weather {
         this.city = city;
         this.countryCode = countryCode;
     }
-    
+
     // Fetch weather from API
     async getWeather() {
         const response = await fetch(`https://samples.openweathermap.org/data/2.5/weather?q=${this.city},${this.countryCode}&appid=${this.apiKey}`);
-    
-        const resData =  await response.json();
-        
+
+        const resData = await response.json();
+
         return resData;
-        
+
+    }
+
+    // Change weather location
+    changeLocation(city, countryCode) {
+        this.city = city;
+        this.countryCode = countryCode;
     }
 }
