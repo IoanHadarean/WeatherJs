@@ -32,11 +32,14 @@ let weatherChangeBtn = document.getElementById('weather-change-btn');
 weatherChangeBtn.addEventListener('click', () => {
     const city = document.getElementById('city').value;
     const countryCode = document.getElementById('countryCode').value;
+    
+    // Change location
     weather.changeLocation(city, countryCode);
     
     // Get and display location weather
     fetchWeather();
     
+    // Set location data to local storage
     storage.setLocationData(city, countryCode);
     
     
