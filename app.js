@@ -2,16 +2,15 @@
 /* global UI */
 /* global Storage */
 
-
+// Init storage
+const storage = new Storage();
 // Get stored location data
 const weatherLocation = storage.getLocationdata();
-console.log(weatherLocation);
 // Init weather object
 const weather = new Weather(weatherLocation.city, weatherLocation.countryCode);
 // Init ui
 const ui = new UI();
-// Init storage
-const storage = new Storage();
+
 
 
 // Get weather on DOM load
