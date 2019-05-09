@@ -7,7 +7,7 @@
 const weatherLocation = storage.getLocationdata();
 console.log(weatherLocation);
 // Init weather object
-const weather = new Weather('Sibiu', 'ro');
+const weather = new Weather(weatherLocation.city, weatherLocation.countryCode);
 // Init ui
 const ui = new UI();
 // Init storage
@@ -18,7 +18,6 @@ const storage = new Storage();
 document.addEventListener('DOMContentLoaded', fetchWeather);
 
 function fetchWeather() {
-    storage.getLocationdata();
     weather.getWeather()
         .then(data => {
             ui.inject(data);
