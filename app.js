@@ -1,8 +1,10 @@
 /* global Weather */
+/* global UI */
 
 // Init Weather object
 
 const weather = new Weather('Sibiu', 'ro');
+const ui = new UI();
 
 // Get weather on DOM load
 document.addEventListener('DOMContentLoaded', fetchWeather);
@@ -13,7 +15,7 @@ document.addEventListener('DOMContentLoaded', fetchWeather);
 function fetchWeather() {
     weather.getWeather()
         .then(data => {
-            ui.inject(results);
+            ui.inject(data);
         })
         .catch(err => console.log(err));
 }
